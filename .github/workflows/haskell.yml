@@ -44,15 +44,15 @@ jobs:
     # Existing build and test steps here
 
     - name: Generate Binary
-      run: cabal install --installdir=. --install-method=copy
+      run: cabal install --installdir=. --install-method=copy hablar
       # Replace the above command with the appropriate command to generate your binary. 
       # Ensure the binary is placed in a known directory.
 
     - name: Upload Binary as Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: my-haskell-app
-        path: path/to/your/binary
+        name: hablar-binary
+        path: ./hablar
         # Replace "path/to/your/binary" with the actual path to the binary generated in the previous step
 
     - name: Create Release
@@ -74,8 +74,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./path/to/your/binary
-        asset_name: my-haskell-app-binary
+        asset_path: ./hablar
+        asset_name: hablar-binary
         asset_content_type: application/octet-stream
 
 
