@@ -43,17 +43,19 @@ appendEntry filePath entry = do
   let updatedEntries = Entries $ existingEntries ++ [entry]
   B.writeFile filePath (encode updatedEntries)
 
--- Function to display all entries
-displayEntries :: Entries -> IO ()
-displayEntries (Entries entries) = mapM_ printEntry entries
+-- Function to interact with users for each entry
+interactWithEntries :: Entries -> IO ()
+interactWithEntries (Entries entries) = mapM_ interactWithEntry entries
   where
-    printEntry (Entry stmt resps) = do
+    interactWithEntry (Entry stmt resps) = do
       putStrLn $ "Statement: " ++ T.unpack stmt
-      putStrLn "Acceptable Responses:"
-      mapM_ (putStrLn . ("- " ++) . T.unpack) resps
-      putStrLn ""
+      putStrLn "Your response: "
+      userResponse <- getLine
+      if T.pack userResponse `elem` resps
+        then putStrLn "Correct!\n"
+        else putStrLn "Incorrect!\n"
 
--- Main function to tie everything together
+-- Modify the main function to include the new interaction mode
 main :: IO ()
 main = do
   args <- getArgs
@@ -64,5 +66,5 @@ main = do
       putStrLn "Entry added to data.json."
     ["read"] -> do
       entries <- readEntries "data.json"
-      displayEntries entries
+      interactWithEntries entries
     _ -> putStrLn "Usage: \n  add <statement> <response1> [response2] ... \n  read"
