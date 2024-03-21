@@ -1,0 +1,64 @@
+[
+  {
+    "statement": "I like to play in midfield but I can play defense",
+    "acceptableResponses": [
+      "Me gusta jugar en el mediocampo pero puedo jugar en defensa"
+    ]
+  },
+  {
+    "statement": "I will go in goal now",
+    "acceptableResponses": ["Ahora voy al arco"]
+  },
+  {
+    "statement": "Pass the ball",
+    "acceptableResponses": ["Pasa la pelota"]
+  },
+  {
+    "statement": "I am here",
+    "acceptableResponses": ["Estoy aquí"]
+  },
+  {
+    "statement": "You have space",
+    "acceptableResponses": ["Tienes espacio"]
+  },
+  {
+    "statement": "Take a shot",
+    "acceptableResponses": ["Haz un disparo"]
+  },
+  {
+    "statement": "Cover him",
+    "acceptableResponses": ["Cúbrelo"]
+  },
+  {
+    "statement": "Watch him",
+    "acceptableResponses": ["Vigílalo"]
+  },
+  {
+    "statement": "Watch them",
+    "acceptableResponses": ["Vigílalos"]
+  },
+  {
+    "statement": "Will I take it?",
+    "acceptableResponses": ["¿Lo tomo yo?"]
+  },
+  {
+    "statement": "Pass it here",
+    "acceptableResponses": ["Pásala aquí"]
+  },
+  {
+    "statement": "You have space",
+    "acceptableResponses": ["Tienes espacio"]
+  },
+  {
+    "statement": "You have time",
+    "acceptableResponses": ["Tienes tiempo"]
+  },
+  {
+    "statement": "Careful",
+    "acceptableResponses": ["Ten cuidado"]
+  },
+  {
+    "statement": "From behind",
+    "acceptableResponses": ["Desde atrás"]
+  }
+]

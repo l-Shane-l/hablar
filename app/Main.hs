@@ -94,19 +94,21 @@ interactWithEntries filePath (Entries entries) =
 main :: IO ()
 main = do
   args <- getArgs
-  let filePath = "data.json"
   case args of
-    ("add" : stmt : resps) -> do
+    -- Adjusting to accept a file name for adding entries
+    ("add" : fileName : stmt : resps) -> do
+      let filePath = fileName -- Directly using the specified file name
       let entry = Entry (T.pack stmt) (map T.pack resps)
       appendEntry filePath entry
-      putStrLn "Entry added to data.json."
-    ["read"] -> do
+      putStrLn $ "Entry added to " ++ filePath
+    -- Adjusting to accept a file name for reading entries
+    ["read", fileName] -> do
+      let filePath = fileName -- Directly using the specified file name
       entries <- readEntries filePath
       (totalQuestions, correctAnswers) <- interactWithEntries filePath entries
       let percentageCorrect =
             if totalQuestions > 0
               then (fromIntegral correctAnswers / fromIntegral totalQuestions :: Double) * 100
               else 0 :: Double
-
       putStrLn $ "Total Questions: " ++ show totalQuestions ++ ", Correct Answers: " ++ show correctAnswers ++ ", Percentage Correct: " ++ printf "%.2f%%" percentageCorrect
-    _ -> putStrLn "Usage: \n  add <statement> <response1> [response2] ... \n  read"
+    _ -> putStrLn "Usage: \n  add <file> <statement> <response1> [response2] ... \n  read <file>"

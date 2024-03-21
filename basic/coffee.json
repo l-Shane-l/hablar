@@ -1,0 +1,41 @@
+[
+  {
+    "statement": "Buenos días, me gustaría pedir un café.",
+    "acceptableResponses": [
+      "Claro, ¿qué tipo de café te gustaría?",
+      "¿Cómo te gustaría tu café?"
+    ]
+  },
+  {
+    "statement": "Un cappuccino con leche de avena, por favor.",
+    "acceptableResponses": [
+      "¿Algo para comer?",
+      "¿Quieres un croissant o algo dulce?"
+    ]
+  },
+  {
+    "statement": "Sí, me gustaría un croissant también.",
+    "acceptableResponses": ["Perfecto, ¿Algo más?", "¿Será todo?"]
+  },
+  {
+    "statement": "Eso es todo, gracias. ¿Puedo pagar con tarjeta?",
+    "acceptableResponses": [
+      "Sí, por supuesto. Por favor, pasa tu tarjeta.",
+      "Claro, aceptamos tarjetas."
+    ]
+  },
+  {
+    "statement": "¿Cuánto es en total?",
+    "acceptableResponses": [
+      "Son [total] euros.",
+      "Serían [total] euros, por favor."
+    ]
+  },
+  {
+    "statement": "Aquí tienes, gracias.",
+    "acceptableResponses": [
+      "Gracias a ti, que tengas un buen día.",
+      "De nada, ¡disfruta tu café y tu día!"
+    ]
+  }
+]

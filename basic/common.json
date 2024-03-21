@@ -1,0 +1,82 @@
+[
+  {
+    "statement": "This",
+    "acceptableResponses": ["Esto"]
+  },
+  {
+    "statement": "That",
+    "acceptableResponses": ["Eso"]
+  },
+  {
+    "statement": "These",
+    "acceptableResponses": ["Estos", "Estas"]
+  },
+  {
+    "statement": "Those",
+    "acceptableResponses": ["Esos", "Esas"]
+  },
+  {
+    "statement": "Here",
+    "acceptableResponses": ["Aquí", "Acá"]
+  },
+  {
+    "statement": "There",
+    "acceptableResponses": ["Allí", "Allá"]
+  },
+  {
+    "statement": "I don't know",
+    "acceptableResponses": ["No sé"]
+  },
+  {
+    "statement": "Please",
+    "acceptableResponses": ["Por favor"]
+  },
+  {
+    "statement": "Thank you",
+    "acceptableResponses": ["Gracias"]
+  },
+  {
+    "statement": "Excuse me",
+    "acceptableResponses": ["Disculpe", "Perdón"]
+  },
+  {
+    "statement": "Sorry",
+    "acceptableResponses": ["Lo siento"]
+  },
+  {
+    "statement": "Yes",
+    "acceptableResponses": ["Sí"]
+  },
+  {
+    "statement": "No",
+    "acceptableResponses": ["No"]
+  },
+  {
+    "statement": "How much?",
+    "acceptableResponses": ["¿Cuánto cuesta?", "¿Cuánto es?"]
+  },
+  {
+    "statement": "Where is...?",
+    "acceptableResponses": ["¿Dónde está...?"]
+  },
+  {
+    "statement": "I would like...",
+    "acceptableResponses": ["Me gustaría...", "Quisiera..."]
+  },
+  {
+    "statement": "Can I have...?",
+    "acceptableResponses": ["¿Puedo tener...?", "¿Me da...?"]
+  },
+  {
+    "statement": "I need...",
+    "acceptableResponses": ["Necesito..."]
+  },
+  {
+    "statement": "What is this?",
+    "acceptableResponses": ["¿Qué es esto?"]
+  },
+  {
+    "statement": "How do you say this in Spanish?",
+    "acceptableResponses": ["¿Cómo se dice esto en español?"]
+  }
+]

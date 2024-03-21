@@ -1,0 +1,72 @@
+[
+  {
+    "statement": "Buenos días, ¿cómo está?",
+    "acceptableResponses": [
+      "Estoy bien, gracias. ¿Y tú?",
+      "Todo bien, ¿y usted?"
+    ]
+  },
+  {
+    "statement": "¿Ha visto el clima para hoy?",
+    "acceptableResponses": [
+      "Sí, parece que va a hacer calor.",
+      "No, ¿qué dicen que va a pasar?"
+    ]
+  },
+  {
+    "statement": "¿Necesita ayuda con algo?",
+    "acceptableResponses": [
+      "No, estoy bien, gracias.",
+      "Si pudieras ayudarme con esto, te lo agradecería."
+    ]
+  },
+  {
+    "statement": "He hecho un poco de comida de más, ¿le gustaría un poco?",
+    "acceptableResponses": [
+      "Oh, eso sería maravilloso. Gracias.",
+      "Estoy bien, pero gracias por ofrecer."
+    ]
+  },
+  {
+    "statement": "¿Ha visto últimamente a nuestra otra vecina?",
+    "acceptableResponses": [
+      "Sí, la vi ayer por la tarde.",
+      "No, no la he visto en varios días."
+    ]
+  },
+  {
+    "statement": "Estoy pensando en plantar algunas flores, ¿tiene alguna sugerencia?",
+    "acceptableResponses": [
+      "Las margaritas siempre van bien aquí.",
+      "¿Has pensado en plantar lavanda?"
+    ]
+  },
+  {
+    "statement": "Buenas noches, que descansen.",
+    "acceptableResponses": [
+      "Igualmente, buenas noches.",
+      "Gracias, nos vemos mañana."
+    ]
+  },
+  {
+    "statement": "Voy a ir al supermercado, ¿necesita que le traiga algo?",
+    "acceptableResponses": [
+      "Si no es mucha molestia, ¿podrías traerme leche?",
+      "Estoy bien, gracias por preguntar."
+    ]
+  },
+  {
+    "statement": "¿Cómo va todo con la familia?",
+    "acceptableResponses": [
+      "Bien, todos están saludables, gracias.",
+      "Ha habido algunos altibajos, pero estamos bien."
+    ]
+  },
+  {
+    "statement": "¿Ha oído sobre el evento en el centro comunitario?",
+    "acceptableResponses": [
+      "Sí, estaba pensando en asistir.",
+      "No, ¿de qué se trata?"
+    ]
+  }
+]
