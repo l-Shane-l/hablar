@@ -3,7 +3,7 @@
 
 module Main where
 
-import Control.Monad (when)
+import Control.Monad (foldM, when)
 import Data.Aeson
 import Data.ByteString.Lazy (ByteString)
 import qualified Data.ByteString.Lazy as B
@@ -13,6 +13,7 @@ import qualified Data.Text as T
 import GHC.Generics
 import System.Directory (doesFileExist)
 import System.Environment (getArgs)
+import Text.Printf (printf)
 
 -- Define the data structure for a single entry
 data Entry = Entry {statement :: Text, acceptableResponses :: [Text]} deriving (Show, Generic, Eq)
@@ -59,14 +60,16 @@ updateEntryInFile filePath entry newResponses = do
   let updatedEntries = map (\e -> if e == entry then entry {acceptableResponses = newResponses} else e) existingEntries
   B.writeFile filePath (encode $ Entries updatedEntries)
 
--- Modified interactWithEntry to include functionality for adding responses
-interactWithEntry :: FilePath -> Entry -> IO ()
+-- Now returns True for correct answers, False otherwise
+interactWithEntry :: FilePath -> Entry -> IO Bool
 interactWithEntry filePath entry@(Entry stmt resps) = do
   putStrLn $ "Statement: " ++ T.unpack stmt
   putStrLn "Your response: "
   userResponse <- getLine
   if T.pack userResponse `elem` resps
-    then putStrLn "Correct!\n"
+    then do
+      putStrLn "Correct!\n"
+      return True
     else do
       putStrLn "Incorrect!\n"
       addResponse <- askToAddResponse userResponse
@@ -74,12 +77,20 @@ interactWithEntry filePath entry@(Entry stmt resps) = do
         let newResponses = resps ++ [T.pack userResponse]
         updateEntryInFile filePath entry newResponses
         putStrLn "Your response has been added."
+      return False
 
--- Updated interactWithEntries to pass filePath
-interactWithEntries :: FilePath -> Entries -> IO ()
-interactWithEntries filePath (Entries entries) = mapM_ (interactWithEntry filePath) entries
+-- Accumulates and returns scoring information
+interactWithEntries :: FilePath -> Entries -> IO (Int, Int)
+interactWithEntries filePath (Entries entries) =
+  foldl
+    ( \acc entry -> do
+        (total, correct) <- acc
+        result <- interactWithEntry filePath entry
+        return (total + 1, correct + if result then 1 else 0)
+    )
+    (return (0, 0))
+    entries
 
--- Main function adjusted to use the updated interactWithEntries
 main :: IO ()
 main = do
   args <- getArgs
@@ -91,5 +102,11 @@ main = do
       putStrLn "Entry added to data.json."
     ["read"] -> do
       entries <- readEntries filePath
-      interactWithEntries filePath entries
+      (totalQuestions, correctAnswers) <- interactWithEntries filePath entries
+      let percentageCorrect =
+            if totalQuestions > 0
+              then (fromIntegral correctAnswers / fromIntegral totalQuestions :: Double) * 100
+              else 0 :: Double
+
+      putStrLn $ "Total Questions: " ++ show totalQuestions ++ ", Correct Answers: " ++ show correctAnswers ++ ", Percentage Correct: " ++ printf "%.2f%%" percentageCorrect
     _ -> putStrLn "Usage: \n  add <statement> <response1> [response2] ... \n  read"
